@@ -1,11 +1,11 @@
 /* ==UserStyle==
-@name Archive Of Our Own Catppuccin
+@name Archive of Our Own Catppuccin
 @namespace github.com/catppuccin/userstyles/styles/archive-of-our-own
 @homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/archive-of-our-own
 @version 2000.01.01
 @updateURL https://github.com/catppuccin/userstyles/raw/main/styles/archive-of-our-own/catppuccin.user.less
 @supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aarchive-of-our-own
-@description Soothing pastel theme for Archive Of Our Own
+@description Soothing pastel theme for Archive of Our Own
 @author Catppuccin
 @license MIT
 
@@ -16,10 +16,6 @@
 ==/UserStyle== */
 
 @-moz-document domain("archiveofourown.org") {
-  /* This section applies the light/dark themes automatically based on the user's system theme.
-     Use the below example CSS to start if the website you are theming doesn't have a light/dark mode toggle.
-     For an actual example of this, see https://github.com/catppuccin/userstyles/blob/39288b593278e5efa48007d5fc001292cf910672/styles/brave-search/catppuccin.user.css#L16-L29.
-  */
   :root {
     @media (prefers-color-scheme: light) {
       #catppuccin(@lightFlavor);
@@ -28,22 +24,6 @@
       #catppuccin(@darkFlavor);
     }
   }
-
-  /* If the website you are theming *does* have a light/dark mode toggle,
-     you can conditionally enable light/dark flavors by targeting whatever
-     attribute that website uses to indicate the theme. *The example below gives you an idea of what
-     to look for. The website you are theming may use a class-based approach (e.g. :root.theme-dark),
-     or any of the myriad of other methods like this.*
-     Use the below example CSS to start if this is the case.
-     For an actual example of this, see https://github.com/catppuccin/userstyles/blob/39288b593278e5efa48007d5fc001292cf910672/styles/youtube/catppuccin.user.css#L21-L30.
-  */
-  // :root[data-theme="dark"] {
-  //   #catppuccin(@darkFlavor);
-  // }
-  // :root[data-theme="light"] {
-  //   #catppuccin(@lightFlavor);
-  // }
-
   #catppuccin(@flavor) {
     @rosewater: @catppuccin[@@flavor][@rosewater];
     @flamingo: @catppuccin[@@flavor][@flamingo];
@@ -87,18 +67,688 @@
     }
 
     /* Start styling your website here: */
+
     background-color: @base;
 
-    /* If you need to specify an overwrite specific to a flavor
-     *  (e.g. only when the flavor is set to latte), you can use a `when` guard clause. */
-    // & when (@flavor = latte) {
-    //   /* ... */
+    // #outer .region {
+    //   background: none;
     // }
-    // /* You can also negate the statement above by using
-    //  *  a `when not` guard clause. */
-    // & when not(@flavor = latte) {
-    //   /* ... */
+    // #footer .group {
+    //   background: none;
     // }
+    // .post fieldset fieldset {
+    //   background: none;
+    // }
+
+    // fieldset fieldset {
+    //   background: none;
+    // }
+    .logo {
+      content: url("data:image/svg+xml,@{svg}");
+      @svg: escape('<svg width="81.333336" height="56" viewBox="0 0 81.333336 56" xmlns="http://www.w3.org/2000/svg"><path fill="@{accent}" d="M50.505.417c-7.575 0-13.717 5.98-13.717 13.36 0 7.377 6.142 13.356 13.717 13.356s13.717-5.979 13.717-13.356c0-7.38-6.142-13.36-13.717-13.36M.683 1.06c-.412.017-.565.13-.675.24 0 0-.177.708 1.12.942 1.295.237 8.717 2.417 18.91 10.427 10.191 8.013 15.729 15.14 19.675 19.323 0 0-12.018 4.242-26.096 13.549 0 0 4.948-5.95 6.892-20.736.284-2.162.81-4.86 1.06-7.423 0 0 .295-2.061-.47-2.061-.766 0-2.004 10.31-4.124 16.73-1.155 3.496-2.592 7.835-6.716 13.49-2.55 3.5-5.1 6.124-4.536 7.306 1.237 2.591 3.83.058 3.83.058s16.495-10.898 33.814-16.259c0 0 4.217 4.613 4.968 5.501 2.26 2.673 3.882 5.626 5.81 5.575 1.567-.042 2.122-.883 2.947-5.42.825-4.536 2.651-9.014 2.651-9.014s10.382-.499 10.898 2.828c.345 2.223-1.199 3.368-2.429 3.777-.6.2-2.444.737-3.21.957-1.434.408-1.8 2.585.573 3.632 3.874 1.706 7.846 2.556 7.481 5.538-.353 2.885-5.13 4.326-8.483 3.592-6.185-1.354-6.482-4.236-7.54-3.828-.766.294 1.414 2.65 2.592 3.417 1.179.765 9.838 5.125 14.373-.296 5.127-6.124-4.712-9.954-4.712-9.954s6.067-2.71 4.948-7.836c-1.12-5.125-7.718-5.891-12.607-6.303 0 0 2.121-5.361 7.01-10.957 2.542-2.91 6.556-6.212 8.955-8.012 2.356-1.767 4.171-2.083 3.652-3.122-.59-1.178-10.133 5.715-11.958 7.363-1.827 1.65-7.129 6.833-11.547 14.728 0 0-7.127.353-12.548 1.648 0 0-7.717-8.364-16.73-15.375S11.025 3.833 5.9 2.243C2.774 1.273 1.37 1.033.682 1.06Zm49.822 2.896c5.569 0 10.083 4.396 10.083 9.82 0 5.423-4.514 9.82-10.083 9.82-5.57 0-10.083-4.397-10.083-9.82 0-5.424 4.514-9.82 10.083-9.82m4.79 29.835s-1.499 2.964-2.203 5.894c-1.24-1.57-4.154-4.743-4.154-4.743s2.212-.569 6.357-1.151"/></svg>');
+    }
+
+    body {
+      background: @base;
+      color: @text;
+      border-color: @crust;
+      outline-color: @accent;
+      // box-shadow: none;
+    }
+    .splash .module h3 {
+      border-bottom-color: @crust;
+    }
+    // .group {
+    //   background: @base;
+    //   color: @text;
+    //   border-color: @crust;
+    //   outline: @accent;
+    //   box-shadow: none;
+    // }
+    // .group .group,
+    // .region,
+    // .flash {}
+    fieldset {
+      background: @surface0;
+      color: @text;
+      border-color: @crust;
+      outline-color: @accent;
+      // box-shadow: none;
+    }
+
+    // fieldset fieldset ul,
+    // form dl,
+    textarea {
+      background: @surface1;
+      color: @text;
+      border-color: @crust;
+      outline-color: @accent;
+      // box-shadow: none;
+    }
+
+    #main .verbose legend,
+    .verbose fieldset,
+    .notice,
+    ul.notes,
+    input,
+    textarea,
+    table,
+    th,
+    td:hover,
+    tr:hover,
+    .symbol .question:hover,
+    #modal,
+    .ui-sortable li,
+    .required .autocomplete,
+    .autocomplete .notice,
+    .system .intro,
+    .comment_error,
+    .kudos_error,
+    div.dynamic,
+    .dynamic form,
+    #ui-datepicker-div,
+    .ui-datepicker table {
+      background: @surface1;
+      color: @text;
+      border-color: @crust;
+      outline-color: @blue;
+      // box-shadow: none;
+    }
+    #header .actions a:hover,
+    #header .actions a:focus {
+      color: @accent;
+      background: @overlay0;
+    }
+    
+    #header .dropdown:hover a,
+    #header .open a,
+    #header .menu {
+      background: @overlay0;
+    }
+
+    // #small_login,
+    // .group.listbox,
+    // fieldset fieldset.listbox,
+    // form blockquote.userstuff,
+    // input:focus,
+    // textarea:focus,
+    li.relationships a {
+      background: @surface0;
+    }
+
+    // .group.listbox .index,
+    // .dashboard fieldset fieldset.listbox .index,
+    // #dashboard a:hover,
+    // th,
+    // #dashboard .secondary,
+    // .secondary,
+    // .thread .even,
+    // .system .tweet_list li,
+    // .ui-datepicker tr:hover {
+    //   background: #2a2a2a;
+    // }
+
+    #header .dropdown .menu a {
+      background: @overlay0;
+    }
+
+    #footer .heading {
+      color: @crust;
+    }
+
+    #footer a {
+      color: @mantle;
+    }
+    #footer li {
+      color: @base;
+    }
+
+    #header .dropdown .menu a:hover,
+    #header .dropdown .menu a:focus {
+      background: @overlay1;
+    }
+
+    // .splash .favorite li:nth-of-type(odd) a,
+    // .ui-datepicker td:hover,
+    // #tos_prompt .heading,
+    // #tos_prompt [disabled] {
+    //   background: #111;
+    // }
+
+    // #outer,
+    // .javascript,
+    // .statistics .index li:nth-of-type(even),
+    // #tos_prompt,
+    // .announcement input[type="submit"],
+    // .nomination dt {
+    //   background: #333;
+    // }
+    // header .primary {
+    //   box-shadow: inset 0 -6px 10px rgba(0, 0, 0, 0.35), 1px 1px 3px -1px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.85)
+    // }
+    #header ul.primary,
+    #outer #footer,
+    .toggled form {
+      background: @accent;
+    }
+
+
+    // #dashboard ul,
+    // dl.meta,
+    // .group.listbox,
+    // fieldset fieldset.listbox,
+    #main li.blurb,
+    // form blockquote.userstuff
+    div.comment {
+      border-color: @mantle;
+    }
+    .comment div.icon {
+      border-bottom-color: @surface1;
+    }
+    .comment h4.byline {
+      background: @surface1;
+    }
+    .own, .draft, .draft .wrapper, .unread, .child, .unwrangled, .unreviewed {
+      background: @surface0;
+    }
+    li.comment {
+      border-color: @crust;
+    }
+    // .toggled form,
+    // form dl dt,
+    // form.single fieldset,
+    // #inner .module .heading,
+    // .bookmark .status span,
+    // .splash .news li,
+    // .filters .group dt.bookmarker {
+    //   border-color: #555;
+    // }
+
+    // .group.listbox,
+    // fieldset fieldset.listbox,
+    // #main li.blurb,
+    // .wrapper,
+    // #dashboard .secondary,
+    // .secondary,
+    // form blockquote.userstuff,
+    // .thread .comment,
+    // .toggled form {
+    //   box-shadow: 1px 1px 3px #000;
+    // }
+
+    #dashboard .current {
+      background: @overlay0;
+    }
+    // .actions a:active,
+    // #outer .current,
+    // a.current,
+    // .current a:visited,
+    // .replied,
+    // span.claimed,
+    // dl.index dd,
+    // .own,
+    // .draft,
+    // .draft .unread,
+    // .child,
+    // .unwrangled,
+    // .unreviewed,
+    // .ui-sortable li:hover {
+    //   background: @surface0;
+    //   border-color: @crust;
+    //   // box-shadow: -1px -1px 3px @base;
+    // }
+
+    span.unread {
+      background: @surface1;
+      border-color: @base;
+      color: @accent;
+    }
+    span.replied {
+      background: @surface1;
+      border-color: @crust;
+      color: @green;
+    }
+    // input,
+    // textarea {
+    //   box-shadow: inset 0 1px 2px #000;
+    // }
+
+    // li.blurb,
+    // .blurb .blurb,
+    // .listbox .index,
+    // fieldset fieldset.listbox,
+    // .dashboard .listbox .index {
+    //   box-shadow: inset 1px 1px 3px #000;
+    // }
+    fieldset.comments {
+      ol.comment.index.group li ul.actions li label {
+        background: @surface1;
+        color: @text;
+        border-color: @crust;
+        input {
+          color: @text;
+          // background: red;
+        }
+      }
+      
+      a:link:hover {
+        color: @accent;
+      }
+      h4 a:link:hover {
+        color: @subtext0;
+      }
+      .actions a {
+        background: @surface1;
+        border-color: @crust;
+        &:hover {
+          box-shadow: inset 2px 2px 2px @base;
+        }
+      }
+    }
+    a:link:hover {
+      color: @subtext0;
+    }
+
+    // #footer a:hover,
+    // #footer a:focus,
+    // .autocomplete .dropdown ul li:hover,
+    // .autocomplete .dropdown li.selected,
+    a.tag:hover {
+      background: @accent;
+      color: @base;
+    }
+
+    // .listbox .heading a.tag:visited:hover,
+    // .symbol .question,
+    // .qtip-content {
+    //   background: #5998D6;
+    //   color: #111;
+    // }
+
+    // .splash .favorite li:nth-of-type(odd) a:hover,
+    // .splash .favorite li:nth-of-type(odd) a:focus {
+    //   background: #5998D6;
+    //   color: #111;
+    // }
+    div.latest.news.module .link a:hover {
+      color: @text;
+    }
+
+    div.latest.news.module a:link:hover,
+    div.browse.module.odd a:link:hover {
+      color: @subtext0;
+    }
+
+    // #header #greeting img {}
+    #header .heading a {
+      color: @accent;
+    }
+
+    // #header .heading a:visited,
+    // #header .user a:hover,
+    // #header .user a:focus,
+    // #header fieldset,
+    // #header form,
+    // #header p,
+    // #dashboard a:hover,
+    // .actions a:hover,
+    // .actions button:hover,
+    // .actions input:hover,
+    // .delete a,
+    // span.delete,
+    // span.unread,
+    // .replied,
+    // span.claimed,
+    // .draggable,
+    // .droppable,
+    // span.requested,
+    // a.work,
+    .blurb h4 a:link,
+    .blurb h4 img,
+    .splash .module h3,
+    .splash .browse li a::before {
+      color: @accent;
+    }
+
+    // .required,
+    // .error,
+    // .comment_error,
+    // .kudos_error,
+    // a.cloud7,
+    // a.cloud8,
+    // #tos_prompt .heading {
+    //   color: #5998D6;
+    // }
+
+    // #greeting .icon,
+    #dashboard,
+    #dashboard.own {
+      background-color: @base;
+      border-color: @accent;
+    }
+    // .qtip-content
+    .error,
+    .comment_error,
+    .kudos_error,
+    .LV_invalid,
+    .LV_invalid_field,
+    input.LV_invalid_field:hover,
+    input.LV_invalid_field:active,
+    textarea.LV_invalid_field:hover,
+    textarea.LV_invalid_field:active {
+      background-color: lighten( @red, 10%);
+      color: @base;
+      border-color: @red;
+    }
+    .work .wrapper  {
+      box-shadow: 1px 1px 5px @crust;
+      dl.work.meta.group {
+        border-color: @crust;
+      }
+    }
+    .splash div.random.readings.module.odd ol.reading.work.index.group li dl.stats a {
+      &:hover {
+        color: @subtext0;
+      }
+    }
+    .userstuff hr {
+      color: @text;
+    }
+    div#feedback.feedback ul.actions {
+      a, input#kudo_submit {
+        background: @surface0;
+        color: @text;
+        border: @crust;
+        &:hover {
+          color: @accent;
+          box-shadow: inset 2px 2px 2px @base;
+        }
+      }
+    }
+    .blurb h4 a {
+      &:visited:hover {
+        color: @text;
+      }
+
+      &:visited {
+        color: @subtext0;
+      }
+
+      &:hover {
+        // color: @blue;
+      }
+
+    }
+
+    // a {
+    // }
+    a:link {
+      color: @text;
+    }
+
+    .reading h4.viewed {
+      background: @surface0;
+    }
+
+    .work ul.work.navigation.actions {
+      a ,input {
+        background: @surface0;
+        border-color: @crust;
+        &:hover {
+          color: @accent;
+          box-shadow: inset 2px 2px 2px @base;
+        }
+      }
+    }
+
+    a.tag #header a,
+    #header a:visited,
+    #header .primary .open a,
+    #header .primary .dropdown:hover a,
+    #header .primary .dropdown a:focus,
+    #header #search input:focus,
+    #header #search input:hover,
+    #header #search input:active,
+    #header #search input {
+      color: @text;
+    }
+
+    #header #search input:focus,
+    #header #search input:hover,
+    #header #search input:active {
+      outline-color: @accent;
+      box-shadow: inset 2px 2px 2px @base;
+    }
+
+    // #header a{
+    //   color: @accent;
+    // }
+
+    #header a:visited:hover,
+    #header a:hover {
+      color: @accent;
+    }
+
+    #dashboard a,
+    #dashboard span,
+    #dashboard .current,
+    .heading,
+    .group .heading,
+    .filters dt a:hover {
+      color: @text;
+    }
+
+    form.inbox fieldset {
+      background: none;
+    }
+    // .resp-sharing-button--twitter {
+    //   color: @text;
+    //   background-color: @blue;
+    //   border-color: @blue;
+    //   &:hover {
+    //     background-color: darken(@blue, 5%);
+    //     border-color: darken(@blue, 5%);
+    //   }
+    //   // & when (@flavor = latte) {
+    //   //   color: #cdd6f4; //mocha text  
+    //   // }
+    //   // & when not(@flavor = latte) {
+    //   //   color: #4c4f69; //latte text
+    //   // }
+    // }
+    // .resp-sharing-button--tumblr {
+    //   background-color: @lavender;
+    //   border-color: @lavender;
+    //   color: @text;
+      
+
+
+    .resp-sharing-button--twitter {
+      background-color: @blue;
+      border-color: @blue;
+      color: @base;
+      &:hover {
+          background-color: darken(@blue, 5%);
+          border-color: darken(@blue, 5%);
+        }
+    }
+
+    .resp-sharing-button--tumblr {
+      background-color: @lavender;
+      border-color: @lavender;
+      color: @base;
+      &:hover {
+          background-color: darken(@lavender, 5%);
+          border-color: darken(@lavender, 5%);
+        }
+    }
+
+
+
+    a:visited,
+    .actions a:visited,
+    .action a:link,
+    .action a:visited,
+    .listbox .heading a:visited {
+      color: @subtext0;
+      &:hover {
+        color: @text;
+      }
+    }
+
+    // span.series .divider {
+    //   color: #999;
+    // }
+
+    // .actions a,
+    // .actions a:link,
+    // .action,
+    // .action:link,
+    .actions button,
+    .actions input,
+    input[type="submit"],
+    button,
+    // .current,
+    // .actions label,
+    // #header .actions a,
+    #header #search .text {
+      color: @text;
+      background: @surface0;
+      &:hover {
+        // border: 1px dotted @accent;
+        box-shadow: inset 2px 2px 2px opacity(@base);
+      }
+    }
+    #header.region nav ul.primary.navigation.actions li.dropdown:hover > a.dropdown-toggle,
+    #header.region nav ul.primary.navigation.actions li.dropdown.open > a.dropdown-toggle {
+      color: @text;
+    }
+
+    #header.region nav ul.primary.navigation.actions li.dropdown a.dropdown-toggle {
+      color: @base;
+    }
+
+    
+    #header .actions a {
+      border-color: @mantle;
+      
+      color: @text;
+      // box-shadow: inset 0 -8px 4px #232323, inset 0 8px 7px #555;
+      // text-shadow: none;
+    }
+
+    // .actions a:hover,
+    // .actions button:hover,
+    // .actions input:hover,
+    // #dashboard a:hover,
+    // label.action:hover,
+    // .action:hover,
+    // .actions a:focus,
+    // .actions button:focus,
+    // .actions input:focus,
+    // #dashboard a:focus,
+    // .actions .disabled select {
+    //   color: #999;
+    //   border-color: #000;
+    //   box-shadow: inset 2px 2px 2px #000;
+    // }
+    .search [role="tooltip"] {
+      background: @overlay0;
+      border-color: @crust;
+    }
+
+    // .actions a:active,
+    // .current,
+    // a.current,
+    // .current a:visited {
+    //   color: #fff;
+    //   background: #555;
+    //   border-color: #fff;
+    //   box-shadow: inset 1px 1px 3px #333;
+    // }
+
+    // .delete a,
+    // span.delete {
+    //   box-shadow: -1px -1px 2px rgba(255,255,255.25);
+    // }
+
+    // .actions label.disabled {
+    //   background: #222;
+    //   box-shadow: none;
+    // }
+
+    // ul.required-tags,
+    // .bookmark .status span,
+    // .blurb .icon {
+    //   opacity: 0.9;
+    //   border: 0;
+    // }
+
+    // #outer .group .heading,
+    // #header .actions a,
+    // fieldset.listbox .heading,
+    // .userstuff .heading,
+    // .heading,
+    // .userstuff h2 {
+    //   text-shadow: none;
+    //   color: #fff;
+    //   background: none;
+    // }
+
+    // #header .actions a,
+    // fieldset fieldset,
+    // .mce-container button,
+    // .filters .expander,
+    // .actions .disabled select {
+    //   box-shadow: none;
+    // }
+    .filters .expander {
+      background: url("data:image/svg+xml,@{svg}") left center no-repeat;
+      @svg: escape('<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path fill="@{accent}" d="M7.823 6 4.357 9.822V2.178m0 0L7.823 6"/></svg>');
+    }
+
+    .filters .expanded .expander {
+      background: url("data:image/svg+xml,@{svg}") left center no-repeat;
+      @svg: escape('<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path fill="@{accent}" d="M6 7.823 2.178 4.357h7.644m0 0L6 7.823"/></svg>');
+    }
+
+    // fieldset fieldset.listbox {
+    //   outline: none;
+    // }
+
+    // form dd.required {
+    //   color: #eee;
+    // }
+
+    // .mce-container input:focus {
+    //   background: #F3EFEC;
+    // }
+
+    // .announcement .userstuff a,
+    // .announcement .userstuff a:link,
+    // .announcement .userstuff a:visited:hover {
+    //   color: #111;
+    // }
+
+    // .announcement .userstuff a:visited {
+    //   color: #666;
+    // }
+
+    // .announcement .userstuff a:hover,
+    // .announcement .userstuff a:focus {
+    //   color: #999;
+    // }
+
+    // .event.announcement .userstuff a,
+    // .filters .expander {
+    //   color: #eee;
+    // }
+
+    // .caution {
+    //   border-color: #807640;
+    //   color: #dbbc54;
+    // }
+
   }
 }
 

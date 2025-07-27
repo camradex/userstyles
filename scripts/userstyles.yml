@@ -63,6 +63,7 @@ collaborators:
   - &pynappo pynappo
   - &nuexq nuexq
   - &WalkQuackBack WalkQuackBack
+  - &camradex camradex
 
 userstyles:
   advent-of-code:
@@ -104,6 +105,14 @@ userstyles:
     note: "Make sure to use the default **Light** theme."
     current-maintainers: []
     past-maintainers: [*GenShibe]
+  archive-of-our-own:
+    name: Archive of Our Own
+    link: https://archiveofourown.org
+    categories: [social_networking]
+    icon: archiveofourown
+    color: red
+    note: "Make sure to use the default **Light** theme."
+    current-maintainers: [*camradex]
   boringproxy:
     name: boringproxy
     link: https://boringproxy.io
