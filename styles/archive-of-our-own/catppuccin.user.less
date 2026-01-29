@@ -14,9 +14,6 @@
 @var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
 @var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 ==/UserStyle== */
-@lightFlavor: "latte";
-@darkFlavor: "mocha";
-@accentColor: "mauve";
 
 @-moz-document domain("archiveofourown.org") {
   :root {
@@ -68,12 +65,13 @@
         color: @subtext0 !important;
       }
     }
-
     background-color: @base;
 
     .logo {
       content: url("data:image/svg+xml,@{svg}");
-      @svg: escape('<svg width="81.333336" height="56" viewBox="0 0 81.333336 56" xmlns="http://www.w3.org/2000/svg"><path fill="@{accent}" d="M50.505.417c-7.575 0-13.717 5.98-13.717 13.36 0 7.377 6.142 13.356 13.717 13.356s13.717-5.979 13.717-13.356c0-7.38-6.142-13.36-13.717-13.36M.683 1.06c-.412.017-.565.13-.675.24 0 0-.177.708 1.12.942 1.295.237 8.717 2.417 18.91 10.427 10.191 8.013 15.729 15.14 19.675 19.323 0 0-12.018 4.242-26.096 13.549 0 0 4.948-5.95 6.892-20.736.284-2.162.81-4.86 1.06-7.423 0 0 .295-2.061-.47-2.061-.766 0-2.004 10.31-4.124 16.73-1.155 3.496-2.592 7.835-6.716 13.49-2.55 3.5-5.1 6.124-4.536 7.306 1.237 2.591 3.83.058 3.83.058s16.495-10.898 33.814-16.259c0 0 4.217 4.613 4.968 5.501 2.26 2.673 3.882 5.626 5.81 5.575 1.567-.042 2.122-.883 2.947-5.42.825-4.536 2.651-9.014 2.651-9.014s10.382-.499 10.898 2.828c.345 2.223-1.199 3.368-2.429 3.777-.6.2-2.444.737-3.21.957-1.434.408-1.8 2.585.573 3.632 3.874 1.706 7.846 2.556 7.481 5.538-.353 2.885-5.13 4.326-8.483 3.592-6.185-1.354-6.482-4.236-7.54-3.828-.766.294 1.414 2.65 2.592 3.417 1.179.765 9.838 5.125 14.373-.296 5.127-6.124-4.712-9.954-4.712-9.954s6.067-2.71 4.948-7.836c-1.12-5.125-7.718-5.891-12.607-6.303 0 0 2.121-5.361 7.01-10.957 2.542-2.91 6.556-6.212 8.955-8.012 2.356-1.767 4.171-2.083 3.652-3.122-.59-1.178-10.133 5.715-11.958 7.363-1.827 1.65-7.129 6.833-11.547 14.728 0 0-7.127.353-12.548 1.648 0 0-7.717-8.364-16.73-15.375S11.025 3.833 5.9 2.243C2.774 1.273 1.37 1.033.682 1.06Zm49.822 2.896c5.569 0 10.083 4.396 10.083 9.82 0 5.423-4.514 9.82-10.083 9.82-5.57 0-10.083-4.397-10.083-9.82 0-5.424 4.514-9.82 10.083-9.82m4.79 29.835s-1.499 2.964-2.203 5.894c-1.24-1.57-4.154-4.743-4.154-4.743s2.212-.569 6.357-1.151"/></svg>');
+      @svg: escape(
+        '<svg width="81.333336" height="56" viewBox="0 0 81.333336 56" xmlns="http://www.w3.org/2000/svg"><path fill="@{accent}" d="M50.505.417c-7.575 0-13.717 5.98-13.717 13.36 0 7.377 6.142 13.356 13.717 13.356s13.717-5.979 13.717-13.356c0-7.38-6.142-13.36-13.717-13.36M.683 1.06c-.412.017-.565.13-.675.24 0 0-.177.708 1.12.942 1.295.237 8.717 2.417 18.91 10.427 10.191 8.013 15.729 15.14 19.675 19.323 0 0-12.018 4.242-26.096 13.549 0 0 4.948-5.95 6.892-20.736.284-2.162.81-4.86 1.06-7.423 0 0 .295-2.061-.47-2.061-.766 0-2.004 10.31-4.124 16.73-1.155 3.496-2.592 7.835-6.716 13.49-2.55 3.5-5.1 6.124-4.536 7.306 1.237 2.591 3.83.058 3.83.058s16.495-10.898 33.814-16.259c0 0 4.217 4.613 4.968 5.501 2.26 2.673 3.882 5.626 5.81 5.575 1.567-.042 2.122-.883 2.947-5.42.825-4.536 2.651-9.014 2.651-9.014s10.382-.499 10.898 2.828c.345 2.223-1.199 3.368-2.429 3.777-.6.2-2.444.737-3.21.957-1.434.408-1.8 2.585.573 3.632 3.874 1.706 7.846 2.556 7.481 5.538-.353 2.885-5.13 4.326-8.483 3.592-6.185-1.354-6.482-4.236-7.54-3.828-.766.294 1.414 2.65 2.592 3.417 1.179.765 9.838 5.125 14.373-.296 5.127-6.124-4.712-9.954-4.712-9.954s6.067-2.71 4.948-7.836c-1.12-5.125-7.718-5.891-12.607-6.303 0 0 2.121-5.361 7.01-10.957 2.542-2.91 6.556-6.212 8.955-8.012 2.356-1.767 4.171-2.083 3.652-3.122-.59-1.178-10.133 5.715-11.958 7.363-1.827 1.65-7.129 6.833-11.547 14.728 0 0-7.127.353-12.548 1.648 0 0-7.717-8.364-16.73-15.375S11.025 3.833 5.9 2.243C2.774 1.273 1.37 1.033.682 1.06Zm49.822 2.896c5.569 0 10.083 4.396 10.083 9.82 0 5.423-4.514 9.82-10.083 9.82-5.57 0-10.083-4.397-10.083-9.82 0-5.424 4.514-9.82 10.083-9.82m4.79 29.835s-1.499 2.964-2.203 5.894c-1.24-1.57-4.154-4.743-4.154-4.743s2.212-.569 6.357-1.151"/></svg>'
+      );
     }
 
     body {
@@ -81,7 +79,6 @@
       color: @text;
       border-color: @crust;
       outline-color: @accent;
-
     }
     .splash .module h3 {
       border-bottom-color: @crust;
@@ -92,7 +89,6 @@
       color: @text;
       border-color: @crust;
       outline-color: @accent;
-
     }
 
     textarea {
@@ -100,7 +96,6 @@
       color: @text;
       border-color: @crust;
       outline-color: @accent;
-
     }
 
     #main .verbose legend,
@@ -129,7 +124,6 @@
       color: @text;
       border-color: @crust;
       outline-color: @blue;
-
     }
     #header .actions a:hover,
     #header .actions a:focus {
@@ -174,7 +168,6 @@
     }
 
     #main li.blurb,
-
     div.comment {
       border-color: @mantle;
     }
@@ -213,7 +206,6 @@
         border-color: @crust;
         input {
           color: @text;
-
         }
       }
 
@@ -275,17 +267,22 @@
     input.LV_invalid_field:active,
     textarea.LV_invalid_field:hover,
     textarea.LV_invalid_field:active {
-      background-color: lighten( @red, 10%);
+      background-color: lighten(@red, 10%);
       color: @base;
       border-color: @red;
     }
-    .work .wrapper  {
+    .work .wrapper {
       box-shadow: 1px 1px 5px @crust;
       dl.work.meta.group {
         border-color: @crust;
       }
     }
-    .splash div.random.readings.module.odd ol.reading.work.index.group li dl.stats a {
+    .splash
+      div.random.readings.module.odd
+      ol.reading.work.index.group
+      li
+      dl.stats
+      a {
       &:hover {
         color: @subtext0;
       }
@@ -297,7 +294,7 @@
       a, input#kudo_submit {
         background: @surface0;
         color: @text;
-        border: @crust;
+        border-color: @crust;
         &:hover {
           color: @accent;
           box-shadow: inset 2px 2px 2px @base;
@@ -312,11 +309,6 @@
       &:visited {
         color: @subtext0;
       }
-
-      &:hover {
-
-      }
-
     }
 
     a:link {
@@ -328,7 +320,7 @@
     }
 
     .work ul.work.navigation.actions {
-      a ,input {
+      a, input {
         background: @surface0;
         border-color: @crust;
         &:hover {
@@ -380,9 +372,9 @@
       border-color: @blue;
       color: @base;
       &:hover {
-          background-color: darken(@blue, 5%);
-          border-color: darken(@blue, 5%);
-        }
+        background-color: darken(@blue, 5%);
+        border-color: darken(@blue, 5%);
+      }
     }
 
     .resp-sharing-button--tumblr {
@@ -390,9 +382,9 @@
       border-color: @lavender;
       color: @base;
       &:hover {
-          background-color: darken(@lavender, 5%);
-          border-color: darken(@lavender, 5%);
-        }
+        background-color: darken(@lavender, 5%);
+        border-color: darken(@lavender, 5%);
+      }
     }
 
     a:visited,
@@ -410,21 +402,31 @@
     .actions input,
     input[type="submit"],
     button,
-
     #header #search .text {
       color: @text;
       background: @surface0;
       &:hover {
-
         box-shadow: inset 2px 2px 2px opacity(@base);
       }
     }
-    #header.region nav ul.primary.navigation.actions li.dropdown:hover > a.dropdown-toggle,
-    #header.region nav ul.primary.navigation.actions li.dropdown.open > a.dropdown-toggle {
+    #header.region
+      nav
+      ul.primary.navigation.actions
+      li.dropdown:hover
+      > a.dropdown-toggle,
+    #header.region
+      nav
+      ul.primary.navigation.actions
+      li.dropdown.open
+      > a.dropdown-toggle {
       color: @text;
     }
 
-    #header.region nav ul.primary.navigation.actions li.dropdown a.dropdown-toggle {
+    #header.region
+      nav
+      ul.primary.navigation.actions
+      li.dropdown
+      a.dropdown-toggle {
       color: @base;
     }
 
@@ -432,7 +434,6 @@
       border-color: @mantle;
 
       color: @text;
-
     }
 
     .search [role="tooltip"] {
@@ -442,14 +443,17 @@
 
     .filters .expander {
       background: url("data:image/svg+xml,@{svg}") left center no-repeat;
-      @svg: escape('<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path fill="@{accent}" d="M7.823 6 4.357 9.822V2.178m0 0L7.823 6"/></svg>');
+      @svg: escape(
+        '<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path fill="@{accent}" d="M7.823 6 4.357 9.822V2.178m0 0L7.823 6"/></svg>'
+      );
     }
 
     .filters .expanded .expander {
       background: url("data:image/svg+xml,@{svg}") left center no-repeat;
-      @svg: escape('<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path fill="@{accent}" d="M6 7.823 2.178 4.357h7.644m0 0L6 7.823"/></svg>');
+      @svg: escape(
+        '<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path fill="@{accent}" d="M6 7.823 2.178 4.357h7.644m0 0L6 7.823"/></svg>'
+      );
     }
-
   }
 }
 
